@@ -15,6 +15,10 @@ describe("/api/farmer", () => {
     await server.close();
   });
 
+  afterAll(async () => {
+    await mongoose.connection.close();
+  });
+
   describe("GET /", () => {
     it("should return all farmers", async () => {
       try {
