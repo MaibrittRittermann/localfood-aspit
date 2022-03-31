@@ -1,0 +1,32 @@
+{
+  "name": "local-food",
+  "version": "1.0.0",
+  "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll --verbose --maxWorkers=1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://maib1148@dev.azure.com/maib1148/Local-Food/_git/Local-Food"
+  },
+  "author": "MRI",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "config": "^3.3.7",
+    "debug": "^4.3.4",
+    "express": "^4.17.3",
+    "express-async-errors": "^3.1.1",
+    "joi": "^17.6.0",
+    "joi-objectid": "^4.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.7",
+    "strip-ansi": "^7.0.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0",
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "db": {
+    "conn": "LF_DB"
+  },
+  "jwtPrivateKey": "LF_JWTPK"
+}
