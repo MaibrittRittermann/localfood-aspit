@@ -4,7 +4,7 @@
   "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --verbose --maxWorkers=1",
+    "test": "jest --verbose --maxWorkers=1",
     "start": "node index.js"
   },
   "repository": {
