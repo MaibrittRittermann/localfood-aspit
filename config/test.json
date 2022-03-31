@@ -1,4 +1,3 @@
 {
-  "jwtPrivateKey": "1234",
-  "db": "mongodb://localhost/local-food-test"
+  "jwtPrivateKey": "1234"
 }
