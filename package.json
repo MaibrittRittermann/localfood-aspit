@@ -4,7 +4,7 @@
   "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --maxWorkers=1",
+    "test": "jest --verbose --detectOpenHandles",
     "start": "node index.js"
   },
   "repository": {
@@ -15,10 +15,13 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "compression": "^1.7.4",
     "config": "^3.3.7",
+    "cors": "^2.8.5",
     "debug": "^4.3.4",
     "express": "^4.17.3",
     "express-async-errors": "^3.1.1",
+    "helmet": "^5.0.2",
     "joi": "^17.6.0",
     "joi-objectid": "^4.0.2",
     "jsonwebtoken": "^8.5.1",
