@@ -40,9 +40,12 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: "npm"
 
+        name: Start MongoDB
+          uses: supercharge/mongodb-github-action@1.7.0
+          with:
+            mongodb-version: ${{ matrix.mongodb-version }}
+
       - name: npm install, build, and test
-        with: #Set DB via env
-          DB: ${{ secrets.LF_TEST_DB }}
 
         run: |
           npm install
