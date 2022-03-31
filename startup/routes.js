@@ -12,6 +12,11 @@ module.exports = function (app) {
   app.use(compression());
   app.use(cors());
   app.use(express.json());
+
+  app.get("/", (req, res) => {
+    res.send("Hello World");
+  });
+
   app.use("/api/login", auth);
   app.use("/api/user", user);
   app.use("/api/farmer", farmer);
