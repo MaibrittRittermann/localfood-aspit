@@ -1,4 +1,4 @@
 {
-  "db": "DB",
+  "db": "LF_DB",
   "jwtPrivateKey": "LF_JWTPK"
 }
