@@ -1,7 +1,7 @@
 {
   "name": "local-food",
   "version": "1.0.0",
-  "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
+  "description": "Project to help small farmes be found by local shoppers to minimize CO2 - BoyLocal",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose --detectOpenHandles",
