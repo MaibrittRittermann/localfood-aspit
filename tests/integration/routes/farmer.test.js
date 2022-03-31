@@ -15,10 +15,6 @@ describe("/api/farmer", () => {
     await server.close();
   });
 
-  afterAll(async () => {
-    await mongoose.connection.close();
-  });
-
   describe("GET /", () => {
     it("should return all farmers", async () => {
       try {
@@ -77,6 +73,10 @@ describe("POST /", () => {
       zip: 1001,
       city: "aaa",
     };
+  });
+
+  afterAll(async () => {
+    await mongoose.connection.close();
   });
 
   it("should return 401 if the user is not logged in", async () => {
