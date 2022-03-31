@@ -4,7 +4,7 @@
   "description": "Project to help small farmes be found by local shoppers to minimize CO2 - BoyLocal",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --detectOpenHandles",
+    "test": "jest --verbose",
     "start": "node index.js"
   },
   "repository": {
