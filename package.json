@@ -4,7 +4,8 @@
   "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --verbose --maxWorkers=1"
+    "test": "jest --watchAll --verbose --maxWorkers=1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,8 @@
     "dotenv": "^16.0.0",
     "jest": "^27.5.1",
     "supertest": "^6.2.2"
+  },
+  "engines": {
+    "node": "16.13.0"
   }
 }
