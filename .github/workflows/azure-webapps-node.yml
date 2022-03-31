@@ -41,7 +41,8 @@ jobs:
           cache: "npm"
 
       - name: npm install, build, and test
-        env: DB:${{ secrets.LF_TEST_DB }}
+        with: #Set DB via env
+          DB: ${{ secrets.LF_TEST_DB }}
 
         run: |
           npm install
