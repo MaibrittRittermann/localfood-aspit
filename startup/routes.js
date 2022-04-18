@@ -3,7 +3,7 @@ const helmet = require("helmet");
 const compression = require("compression");
 const cors = require("cors");
 const auth = require("../routes/login");
-const farmer = require("../routes/farmer");
+const seller = require("../routes/seller");
 const product = require("../routes/product");
 const user = require("../routes/user");
 
@@ -19,6 +19,6 @@ module.exports = function (app) {
 
   app.use("/api/login", auth);
   app.use("/api/user", user);
-  app.use("/api/farmer", farmer);
+  app.use("/api/seller", seller);
   app.use("/api/products", product);
 };

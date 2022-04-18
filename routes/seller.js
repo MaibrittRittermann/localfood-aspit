@@ -1,42 +1,42 @@
 const express = require("express");
-const { Farmer, validate } = require("../model/farmer");
+const { Seller, validate } = require("../model/seller");
 const { Product } = require("../model/product");
 const auth = require("../middleware/auth");
 const validateObjectID = require("../middleware/validateObjectId");
 const route = express.Router();
 
 route.get("/", async (req, res) => {
-  res.send(await Farmer.find().sort("zip"));
+  res.send(await Seller.find().sort("zip"));
 });
 
 // find by category where zip ...
 
 route.get("/:id", validateObjectID, async (req, res) => {
-  let farmer = await Farmer.findById(req.params.id);
-  if (!farmer) return res.status(404).send("This farmer does not exist!");
-  res.send(farmer);
+  let seller = await Seller.findById(req.params.id);
+  if (!seller) return res.status(404).send("This seller does not exist!");
+  res.send(seller);
 });
 
 route.get("/products/:id", validateObjectID, async (req, res) => {
-  let farmer = await Farmer.findById(req.params.id);
-  if (!farmer) return res.status(404).send("This farmer does not exist!");
-  res.send(farmer.products);
+  let seller = await Seller.findById(req.params.id);
+  if (!seller) return res.status(404).send("This seller does not exist!");
+  res.send(seller.products);
 });
 
 route.post("/", auth, async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const farmer = new Farmer({ ...req.body });
-  await farmer.save();
-  res.send(farmer);
+  const seller = new Seller({ ...req.body });
+  await seller.save();
+  res.send(seller);
 });
 
 route.put("/:id", [auth, validateObjectID], async (req, res) => {
   const { error } = validate(req.body);
 
   if (error) return res.status(400).send(error.details[0].message);
-  const farmer = await Farmer.findByIdAndUpdate(
+  const seller = await Seller.findByIdAndUpdate(
     req.params.id,
     {
       name: req.body.name,
@@ -47,16 +47,16 @@ route.put("/:id", [auth, validateObjectID], async (req, res) => {
     },
     { new: true }
   );
-  res.send(farmer);
+  res.send(seller);
 });
 
 route.delete("/:id", [auth, validateObjectID], async (req, res) => {
-  let farmer = Farmer.findById(req.params.id);
-  if (!farmer) return res.status(404).send("This farmer does not exist!");
+  let seller = Seller.findById(req.params.id);
+  if (!seller) return res.status(404).send("This seller does not exist!");
 
-  await Farmer.deleteOne({ _id: prod._id });
+  await Seller.deleteOne({ _id: prod._id });
 
-  res.send(farmer);
+  res.send(seller);
 });
 
 module.exports = route;

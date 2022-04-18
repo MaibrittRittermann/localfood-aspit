@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Joi = require("joi");
 const { productSchema } = require("./product");
 
-const farmerSchema = new mongoose.Schema({
+const sellerSchema = new mongoose.Schema({
   name: { type: String, required: true, minlength: 2, maxlength: 255 },
   address: { type: String, required: true },
   zip: { type: Number, required: true, min: 1000, max: 9999 },
@@ -10,9 +10,9 @@ const farmerSchema = new mongoose.Schema({
   products: [productSchema],
 });
 
-const Farmer = mongoose.model("Farmer", farmerSchema);
+const Seller = mongoose.model("Seller", sellerSchema);
 
-function validateFarmer(farmer) {
+function validateSeller(seller) {
   const schema = Joi.object({
     name: Joi.string().min(3).required(),
     address: Joi.string().min(3).required(),
@@ -21,8 +21,8 @@ function validateFarmer(farmer) {
     products: Joi.allow(),
   });
 
-  return schema.validate(farmer);
+  return schema.validate(seller);
 }
 
-module.exports.Farmer = Farmer;
-module.exports.validate = validateFarmer;
+module.exports.Seller = Seller;
+module.exports.validate = validateSeller;
