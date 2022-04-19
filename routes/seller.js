@@ -1,6 +1,6 @@
 const express = require("express");
 const { Seller, validate } = require("../model/seller");
-const { Product } = require("../model/product");
+const { Product, validate:validateProduct } = require("../model/product");
 const auth = require("../middleware/auth");
 const validateObjectID = require("../middleware/validateObjectId");
 const route = express.Router();
@@ -21,6 +21,20 @@ route.get("/products/:id", validateObjectID, async (req, res) => {
   let seller = await Seller.findById(req.params.id);
   if (!seller) return res.status(404).send("This seller does not exist!");
   res.send(seller.products);
+});
+
+route.post("/products/:id", validateObjectID, async (req, res) => {
+  const { error } = validateProduct(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  let seller = await Seller.findById(req.params.id);
+  if (!seller) return res.status(404).send("This seller does not exist!");
+  
+  const product = new Product({ ...req.body });
+  seller.products.push(product);
+  await seller.save
+  
+  res.send(product);
 });
 
 route.post("/", auth, async (req, res) => {
