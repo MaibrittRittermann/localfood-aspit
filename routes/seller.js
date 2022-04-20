@@ -40,6 +40,8 @@ route.put("/:id", [auth, validateObjectID], async (req, res) => {
     req.params.id,
     {
       name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone,
       address: req.body.address,
       zip: req.body.zip,
       city: req.body.city,
