@@ -70,7 +70,7 @@ route.delete("/:id", [auth, validateObjectID], async (req, res) => {
   let seller = Seller.findById(req.params.id);
   if (!seller) return res.status(404).send("This seller does not exist!");
 
-  await Seller.deleteOne({ _id: prod._id });
+  await Seller.deleteOne({ _id: seller._id });
 
   res.send(seller);
 });
