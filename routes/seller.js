@@ -9,7 +9,7 @@ route.get("/", async (req, res) => {
   res.send(await Seller.find().sort("zip"));
 });
 
-// find by category where zip ...
+// TODO: find by Products by category and zip ...
 
 route.get("/:id", validateObjectID, async (req, res) => {
   let seller = await Seller.findById(req.params.id);
@@ -36,6 +36,9 @@ route.post("/products/:id", validateObjectID, async (req, res) => {
   
   res.send(product);
 });
+
+//TODO: getProduct & updateProduct
+
 
 route.post("/", auth, async (req, res) => {
   const { error } = validate(req.body);
