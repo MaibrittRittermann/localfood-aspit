@@ -16,6 +16,10 @@ route.get("/:id", validateObjectID, async (req, res) => {
   res.send(prod);
 });
 
+route.get("/seller/:id", validateObjectID, async(req, res) => {
+  res.send(await Product.find());
+});
+
 route.post("/", auth, async (req, res) => {
   const { error } = validate(req.body);
 
@@ -29,6 +33,12 @@ route.post("/", auth, async (req, res) => {
     amount: req.body.amount,
     unit: req.body.unit,
     price: req.body.price,
+    seller: {
+      id: req.body.seller_id,
+      address: req.body.address,
+      zip: req.body.zip,
+      city: req.body.city
+    }
   });
   await prod.save();
   res.send(prod);
@@ -48,6 +58,12 @@ route.put("/:id", [auth, validateObjectID], async (req, res) => {
       amount: req.body.amount,
       unit: req.body.unit,
       price: req.body.price,
+      seller: {
+        id: req.body.seller_id,
+        address: req.body.address,
+        zip: req.body.zip,
+        city: req.body.city
+      }
     },
     { new: true }
   );

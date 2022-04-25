@@ -16,7 +16,7 @@ route.get("/:id", validateObjectID, async (req, res) => {
   if (!seller) return res.status(404).send("This seller does not exist!");
   res.send(seller);
 });
-
+/*
 route.get("/products/:id", validateObjectID, async (req, res) => {
   let seller = await Seller.findById(req.params.id);
   if (!seller) return res.status(404).send("This seller does not exist!");
@@ -36,7 +36,7 @@ route.post("/products/:id", validateObjectID, async (req, res) => {
   
   res.send(product);
 });
-
+*/
 //TODO: getProduct & updateProduct
 
 
