@@ -9,6 +9,7 @@ route.get("/", async (req, res) => {
 });
 
 // find by category where zip ...
+//route
 
 route.get("/:id", validateObjectID, async (req, res) => {
   let prod = await Product.findById(req.params.id);
@@ -17,7 +18,7 @@ route.get("/:id", validateObjectID, async (req, res) => {
 });
 
 route.get("/seller/:id", validateObjectID, async(req, res) => {
-  res.send(await Product.find());
+  res.send(await Product.find({'seller.id' : req.params.id}));
 });
 
 route.post("/", auth, async (req, res) => {

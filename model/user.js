@@ -24,7 +24,9 @@ const userSchema = new mongoose.Schema({
     maxlength: 1024,
   },
   access: {
-    enum: ["admin", "seller", "client"],
+    type: String,
+    required: true,
+    minlength: 5
   },
 });
 

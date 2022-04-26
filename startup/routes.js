@@ -8,9 +8,14 @@ const product = require("../routes/product");
 const user = require("../routes/user");
 
 module.exports = function (app) {
+
+  const corsOptions = {
+    exposedHeaders: 'Authorization',
+  };
+
   app.use(helmet());
   app.use(compression());
-  app.use(cors());
+  app.use(cors(corsOptions));
   app.use(express.json());
 
   app.get("/", (req, res) => {

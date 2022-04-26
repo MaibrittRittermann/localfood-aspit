@@ -7,6 +7,10 @@ const { User, validate } = require("../model/user");
 
 const route = express.Router();
 
+route.get("/", async (req, res) => {
+  res.send(await User.find().sort("name"));
+});
+
 route.post("/register/", async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
