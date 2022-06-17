@@ -12,7 +12,7 @@ module.exports = function (app) {
   const corsOptions = {
     exposedHeaders: 'Authorization',
   };
-
+  app.disable('x-powered-by');
   app.use(helmet());
   app.use(compression());
   app.use(cors(corsOptions));
