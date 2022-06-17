@@ -3,6 +3,7 @@ const { Product, validate } = require("../model/product");
 const route = express.Router();
 const auth = require("../middleware/auth");
 const validateObjectID = require("../middleware/validateObjectId");
+const sanitize = require("../middleware/sanitize");
 
 route.get("/", async (req, res) => {
   res.send(await Product.find().sort("title"));
@@ -14,11 +15,11 @@ route.get("/", async (req, res) => {
 route.get("/:id", validateObjectID, async (req, res) => {
   let prod = await Product.findById(req.params.id);
   if (!prod) return res.status(404).send("This product does not exist!");
-  res.send(prod);
+  res.send(sanitize(prod));
 });
 
 route.get("/seller/:id", validateObjectID, async(req, res) => {
-  res.send(await Product.find({'seller.id' : req.params.id}));
+  res.send(sanitize(await Product.find({'seller.id' : req.params.id})));
 });
 
 route.post("/", auth, async (req, res) => {

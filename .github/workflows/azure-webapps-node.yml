@@ -54,6 +54,10 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
+      - name: Run semgrep
+        uses: returntocorp/semgrep-action@v1
+        env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
